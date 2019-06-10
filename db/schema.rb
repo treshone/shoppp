@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_054650) do
+ActiveRecord::Schema.define(version: 2019_06_03_172326) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "email"
@@ -29,6 +29,27 @@ ActiveRecord::Schema.define(version: 2019_05_18_054650) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "product_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status_id"
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.text "address"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["status_id"], name: "index_orders_on_status_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "category_id"
     t.string "title"
@@ -38,6 +59,12 @@ ActiveRecord::Schema.define(version: 2019_05_18_054650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
