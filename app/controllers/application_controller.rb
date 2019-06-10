@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :parse_orders_input
+  helper_method :set_order_items
 
   def parse_orders_input orders_input
     s1 = orders_input.split(/,/)
@@ -14,5 +14,17 @@ class ApplicationController < ActionController::Base
       arr.push arr2
     end
     arr
+  end
+
+  def get_session_params params
+    @items = parse_orders_input(params)
+    @items
+  end
+
+  def set_order_items
+    items = get_session_params(session[:input_param])
+    items.each do |item|
+      item[0] = Product.find(item[0])
+    end
   end
 end
