@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :set_order_items
+  helper_method :get_session_params
 
   def parse_orders_input orders_input
     s1 = orders_input.split(/,/)

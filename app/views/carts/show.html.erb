@@ -28,7 +28,7 @@
 					    <tbody> 
 					      	<% total_price = 0 %>
 						    <% total_qty = 0 %>	
-						    <% @items.each do |item| %>	
+						    <% @items.each do |item| %>
 							  	<tr> 
 							    	<td><%= item[0].title %></td>  
 								  	<td><%= item[1] %></td>
@@ -49,6 +49,45 @@
 					<%= link_to 'Вернуться к списку товаров', root_path, class: 'btn btn-outline-info' %>
 					<button class="btn btn-outline-danger" onclick="return cancel_order();">Очистить корзину</button>
 				</div>
+
+				<div>
+					<h1 class="my-4">Оформление заказа</h1>
+				</div>
+				
+				<div>
+        			<% if @errors && @errors.length > 0 then %>
+        				<% @errors.each do |error| %>
+        					<div class="alert alert-danger"><%= error %></div>
+        				<% end %>
+        			<% end %>
+
+        			<%= form_with model: @order = Order.new do |form| %>
+
+						<%= form.hidden_field :status_id, value: 1 %>
+						<div class="form-group">
+							Введите ФИО:<br/>
+							<%= form.text_field :name, class: 'form-control', placeholder: 'Ваше ФИО' %>
+						</div>
+						<div class="form-group">
+							Введите номер телефона:<br/>
+							<%= form.text_field :phone, class: 'form-control', placeholder: 'Ваш номер телефона' %>
+						</div>
+						<div class="form-group">
+							Введите адрес электронной почты:<br/>
+							<%= form.text_field :email, class: 'form-control', placeholder: 'user@example.com' %>
+						</div>
+						<div class="form-group">
+							Введите адрес:<br/>
+							<%= form.text_field :address, class: 'form-control', placeholder: 'Ваш адрес (город, улица и т.д.)' %>
+						</div>
+						<div class="form-group">
+							Комментарий:<br/>
+							<%= form.text_area :comment, class: 'form-control', placeholder: 'Ваш комментарий к заказу' %>
+						</div>
+						<%= form.submit 'Оформить заказ', class: 'btn btn-outline-success' %>
+					<% end %>
+
+        		</div>
 			</div>
 			<br/>
 			<br/>

@@ -7,4 +7,7 @@ class CartsController < ApplicationController
     session[:input_param] = params[:orders_input]
     redirect_to cart_show_path
   end
+
+  def order_placed
+  end
 end
