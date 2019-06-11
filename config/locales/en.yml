@@ -33,7 +33,17 @@ en:
   activerecord:
     attributes:
       order:
+        status: "Статус заказа"
         name: "ФИО"
         phone: "Номер телефона"
         email: "Адрес электронной почты"
         address: "Адрес"
+        comment: "Комментарий к заказу"
+      product:
+        category: "Категория"
+        title: "Название"
+        image: "Изображение"
+        description: "Описание"
+        price: "Цена"
+      category:
+        title: "Название"  
