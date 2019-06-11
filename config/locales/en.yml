@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      order:
+        name: "ФИО"
+        phone: "Номер телефона"
+        email: "Адрес электронной почты"
+        address: "Адрес"
