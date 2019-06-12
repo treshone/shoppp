@@ -1,6 +1,35 @@
 <div class="row">
+
+	<div class="col-lg-8">
+		<div>
+			<h4 style="text-align: center;">магазин цветов и керамики</h4>
+			<img class="img-fluid" src="<%= image_url('logo_without_bg.png') %>" alt="Responsive image">
+		</div>
+		<br>
+		<br>
+	</div>
+	
+	<div class="col-lg-1"></div>
+
 	<div class="col-lg-3">
-		<h1 class="my-4">Shop Name</h1>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<p>
+				<img class="img-fluid" src="<%= image_url('phone.png') %>" alt="Responsive image">
+				+7-(961)-780-14-63
+			</p>
+			<p>
+				<img class="img-fluid" src="<%= image_url('location.png') %>" alt="Responsive image">
+				г.Тюмень, ул.Широтная 83 к1/1
+			</p> 
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-3">
 		<div class="list-group">
 			<% Category.all.find_each do |category| %>  
 				<%= link_to category.title, products_path(category: category.id), class: "list-group-item" %>
@@ -9,18 +38,14 @@
 	</div>
       
 	<div class="col-lg-9">
-		<div>
-			<img class="img-fluid" src="http://placehold.it/900x350" alt="Responsive image">
-		</div>
-		<br/>
 		<div class="row">
 			<% @products.each do |p| %>
 				<div class="col-lg-4 col-md-6 mb-4">
 				    <div class="card h-100 text-center">
-				        <a href="#"><img class="card-img-top" src="<%= p.image %>"></a>
+				        <img class="card-img-top" src="<%= p.image %>">
 				        <div class="card-body">
 				            <h4 class="card-title">
-				            	<a href="#"><%= p.title %></a>
+				            	<%= p.title %>
 				            </h4>
 				            <h5><%= p.price %> руб</h5>
 				            <p class="card-text"><%= p.description %></p>

@@ -3,7 +3,7 @@ Trestle.configure do |config|
   #
   # Set the page title shown in the main header within the admin.
   #
-  config.site_title = "Shoppp"
+  config.site_title = "Радуга"
 
   # Specify a custom image to be used in place of the site title for mobile and
   # expanded/desktop navigation. These images should be placed within your
@@ -17,7 +17,7 @@ Trestle.configure do |config|
 
   # Speficy a favicon to be used within the admin.
   #
-  # config.favicon = "favicon.ico"
+  config.favicon = "favicon.png"
 
   # Set the text shown in the page footer within the admin.
   # Defaults to 'Powered by Trestle'.
