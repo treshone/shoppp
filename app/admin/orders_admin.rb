@@ -1,6 +1,6 @@
 Trestle.resource(:orders) do
   menu do
-    item :orders, icon: "fa fa-star"
+    item :orders, icon: "fa fa-shopping-bag"
   end
 
   # Customize the table columns shown on the index view.
