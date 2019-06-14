@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'cart/show', to: 'carts#show'
   get 'order_placed', to: 'carts#order_placed'
   resources :orders, only: [:create]
+  get 'contacts', to: 'pages#contacts'
 end
