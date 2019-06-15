@@ -14,6 +14,9 @@ Trestle.resource(:products) do
     column :title
     column :description
     column :price
+    column :is_active, align: :center do |product|
+      status_tag(icon("fa fa-check"), :success) if product.is_active?
+    end
     #   column :created_at, align: :center
   #   actions
   end
@@ -21,11 +24,13 @@ Trestle.resource(:products) do
   # Customize the form fields shown on the new/edit views.
   #
   form do |product|
-    collection_select :category_id, Category.all, :id, :title, { label: 'Category' }
+
+    collection_select :category_id, Category.all, :id, :title, { label: 'Категория' }
     file_field :image
     text_field :title
     text_area :description
     text_field :price
+    check_box :is_active
   
   #   row do
   #     col(xs: 6) { datetime_field :updated_at }
@@ -41,6 +46,6 @@ Trestle.resource(:products) do
   #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
   #
   params do |params|
-    params.require(:product).permit(:category_id, :image, :title, :description, :price)
+    params.require(:product).permit(:category_id, :image, :title, :description, :price, :is_active)
   end
 end

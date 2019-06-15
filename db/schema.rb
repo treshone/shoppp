@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_172326) do
+ActiveRecord::Schema.define(version: 2019_06_15_041423) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "email"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_172326) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_active"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

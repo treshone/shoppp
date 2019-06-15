@@ -45,5 +45,6 @@ en:
         image: "Изображение"
         description: "Описание"
         price: "Цена"
+        is_active: "Активно"
       category:
         title: "Название"  
